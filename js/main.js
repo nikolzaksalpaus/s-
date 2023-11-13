@@ -190,6 +190,7 @@ $(document).ready(function(){
             ];
             $("body").css("background", "linear-gradient(0deg, rgba("+gradientResult[0][0]+","+gradientResult[0][1]+","+gradientResult[0][2]+",1) 0%, rgba("+gradientResult[1][0]+","+gradientResult[1][1]+","+gradientResult[1][2]+",1) 50%, rgba("+gradientResult[2][0]+","+gradientResult[2][1]+","+gradientResult[2][2]+",1) 100%)");
         }
+        $("body").css("background-attachment","fixed");
     }
     
     async function updateWeather() {
