@@ -3,7 +3,15 @@ $(document).ready(function(){
     const api = "ae48aa7d95920be05c640cea1737ac21";
 
     let city = "Lahti";
+
+    let tempYksikko = "C";
+    let paineYksikko = "hPa";
+    let nopeusYksikko = "m/s";
     
+    $(".f").css("color", "#DCDCDC");
+    $(".mph").css("color", "#DCDCDC");
+    $(".inhg").css("color", "#DCDCDC");
+
     const Lahti = {
         "lat": "60.98267",
         "lon": "25.66151"
@@ -182,29 +190,99 @@ $(document).ready(function(){
             ];
             $("body").css("background", "linear-gradient(0deg, rgba("+gradientResult[0][0]+","+gradientResult[0][1]+","+gradientResult[0][2]+",1) 0%, rgba("+gradientResult[1][0]+","+gradientResult[1][1]+","+gradientResult[1][2]+",1) 50%, rgba("+gradientResult[2][0]+","+gradientResult[2][1]+","+gradientResult[2][2]+",1) 100%)");
         }
-
-
-        $('#time').html(currentTimeUnix);
     }
-
-    async function updateWeather(city) {
+    
+    async function updateWeather() {
         let weather = await getWeather(city);
 
         let weatherIcon = weather.weather[0].icon;
 
         $(".kaupunki-nimi-otsikko").html(city);
 
+        $(".kaupunki-banneri").css("background-image", "url('../img/"+city+"-day.jpg")
+
+        let date = new Date((await getTime()).unixtime*1000);
+
+        let viikonpaiva;
+
+        switch((await getTime()).day_of_week){
+            case 1:
+                viikonpaiva = "Maanantai"
+                break;
+            case 1:
+                viikonpaiva = "Tiistai"
+                break;
+            case 1:
+                viikonpaiva = "Keskiviikko"
+                break;
+            case 1:
+                viikonpaiva = "Torstai"
+                break;
+            case 1:
+                viikonpaiva = "Perjantai"
+                break;
+            case 1:
+                viikonpaiva = "Lauantai"
+                break;
+            case 1:
+                viikonpaiva = "Sunnuntai"
+                break;
+        }
+
+        var day = (date.getDate() < 10 ? '0' : '') + date.getDate(); //adding leading 0 if date less than 10 for the required dd format
+        var month = (date.getMonth() < 9 ? '0' : '') + (date.getMonth() + 1); //adding leading 0 if month less than 10 for mm format. Used less than 9 because javascriptmonths are 0 based.
+        var year = date.getFullYear(); //full year in yyyy format
+
+        var hours = ((date.getHours()) < 10 ? '0' : '') + (date.getHours() % 12 || 12); //converting 24h to 12h and using 12 instead of 0. also appending 0 if hour less than 10 for the required hh format
+        var minutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes(); //adding 0 if minute less than 10 for the required mm format
+
+        var formattedDate = viikonpaiva +', klo ' + hours + '.' + minutes + ', ' + day + '.' + month + '.' + year;
+
+        $(".paivitetty").html(formattedDate);
+
         $("#condition").attr("src", "https://openweathermap.org/img/wn/"+weatherIcon+"@2x.png");
-        $("#lampotila").html(Math.round(weather.main.temp - 273)+" &deg;C");
-        $("#tuntuu").html("Tuntuu kuin "+Math.round(weather.main.feels_like - 273)+" &deg;C");
+
+        let lampotila;
+        let feels;
+
+        if(tempYksikko === "C"){
+            lampotila = Math.round(weather.main.temp - 273.15)
+            feels = Math.round(weather.main.feels_like - 273.15)
+        }else if(tempYksikko === "F"){
+            lampotila = Math.round((weather.main.temp - 273.15)*1.8 + 32)
+            feels = Math.round((weather.main.feels_like - 273.15)*1.8 + 32)
+        }
+        
+        $("#lampotila").html(lampotila+" &deg;"+tempYksikko);
+        $("#tuntuu").html("Tuntuu kuin "+feels+" &deg;"+tempYksikko);
         
         $("#tuuli-suunta-kuvake").css("transform", "rotate("+weather.wind.deg+"deg)");
-        $("#tuuli").html(weather.wind.deg+"&deg; "+Math.round(weather.wind.speed)+" m/s");
-        $("#tuulen-puska").html("Tuulen puska "+Math.round(weather.wind.gust)+" m/s");
+
+        let tuuli;
+        let puska;
+
+        if(nopeusYksikko === "m/s"){
+            speed = Math.round(weather.wind.speed)
+            gust = Math.round(weather.wind.gust)
+        }else if(nopeusYksikko === "mph"){
+            speed = Math.round(weather.wind.speed * 2.24)
+            gust = Math.round(weather.wind.gust * 2.24)
+        }
+
+        $("#tuuli").html(weather.wind.deg+"&deg; "+speed+" "+nopeusYksikko);
+        $("#tuulen-puska").html("Tuulen puska "+gust+" "+nopeusYksikko);
 
         $("#kosteus").html(weather.main.humidity+"%");
 
-        $("#paine").html(weather.main.pressure+" hPa");
+        let paine;
+
+        if(paineYksikko === "hPa"){
+            paine = Math.round(weather.main.pressure)
+        }else if(paineYksikko === "inHg"){
+            paine = Math.round(29.92 * (weather.main.pressure / 1013.2))
+        }
+
+        $("#paine").html(paine+" "+paineYksikko);
 
         $("#nakyvyys").html(weather.visibility+" m");
         if(weather.rain){
@@ -212,6 +290,7 @@ $(document).ready(function(){
             $("#sade").html(weather.rain["1h"]+" mm");
         }else{
             $(".sade-hide").hide();
+            $("#sade").html("Ei sadetta");
         }
         
 
@@ -219,6 +298,7 @@ $(document).ready(function(){
             $(".lumensyvyys-hide").show();
             $("#lumensyvyys").html(weather.snow["1h"]+" mm");
         }else{
+            $("#lumensyvyys").html("Ei lunta");
             $(".lumensyvyys-hide").hide();
         }
     }
@@ -226,11 +306,57 @@ $(document).ready(function(){
     $(".kaupunki").on("click", function(e){
         e.preventDefault();
         city = $(this).attr("kaupunki");
-        console.log(city);
+        $(".kaupunki").removeClass("kaupunki-active");
+        $(this).addClass("kaupunki-active");
         updateWeather();
     })
 
-    updateWeather(city);
+    $("#temperature-switch").change(function(){
+        if(this.checked){
+            // Fahrenheit 
+            tempYksikko = "F";
+            $(".c").css("color", "#DCDCDC");
+            $(".f").css("color", "#FFFFFF");
+        }else{
+            // Celsius 
+            tempYksikko = "C";
+            $(".f").css("color", "#DCDCDC");
+            $(".c").css("color", "#FFFFFF");
+        }
+        updateWeather();
+    })
+
+    $("#nopeus-switch").change(function(){
+        if(this.checked){
+            // mph 
+            nopeusYksikko = "mph";
+            $(".ms").css("color", "#DCDCDC");
+            $(".mph").css("color", "#FFFFFF");
+        }else{
+            // m/s 
+            nopeusYksikko = "m/s";
+            $(".mph").css("color", "#DCDCDC");
+            $(".ms").css("color", "#FFFFFF");
+        }
+        updateWeather();
+    })
+
+    $("#paine-switch").change(function(){
+        if(this.checked){
+            // inHg 
+            paineYksikko = "inHg";
+            $(".hpa").css("color", "#DCDCDC");
+            $(".inhg").css("color", "#FFFFFF");
+        }else{
+            // hPa 
+            paineYksikko = "hPa";
+            $(".inhg").css("color", "#DCDCDC");
+            $(".hpa").css("color", "#FFFFFF");
+        }
+        updateWeather();
+    })
+
+    updateWeather();
     updateTime(city);
     setInterval(updateTime, 10000);
 });
