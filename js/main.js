@@ -210,22 +210,22 @@ $(document).ready(function(){
             case 1:
                 viikonpaiva = "Maanantai"
                 break;
-            case 1:
+            case 2:
                 viikonpaiva = "Tiistai"
                 break;
-            case 1:
+            case 3:
                 viikonpaiva = "Keskiviikko"
                 break;
-            case 1:
+            case 4:
                 viikonpaiva = "Torstai"
                 break;
-            case 1:
+            case 5:
                 viikonpaiva = "Perjantai"
                 break;
-            case 1:
+            case 6:
                 viikonpaiva = "Lauantai"
                 break;
-            case 1:
+            case 7:
                 viikonpaiva = "Sunnuntai"
                 break;
         }
