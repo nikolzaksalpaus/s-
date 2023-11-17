@@ -280,7 +280,7 @@ $(document).ready(function(){
         if(paineYksikko === "hPa"){
             paine = Math.round(weather.main.pressure)
         }else if(paineYksikko === "inHg"){
-            paine = Math.round(29.92 * (weather.main.pressure / 1013.2))
+            paine = Math.round(29.92 * (weather.main.pressure / 1013.2)*100)/100 // round to 2 numbers after decimal
         }
 
         $("#paine").html(paine+" "+paineYksikko);
