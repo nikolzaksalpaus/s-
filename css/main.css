@@ -11,47 +11,6 @@ body{
     height: 100%;
 }
 
-a{
-    color: #fff;
-    text-decoration: none;
-}
-
-@media (min-width: 1600px) {
-    .content{
-        width: 1300px;
-        margin: 0 auto;
-    }
-    footer{
-        width: 1300px;
-        margin: 0 auto;
-        padding: 30px;
-    }
-}
-
-@media (min-width: 1400px) and (max-width: 1599px) {
-    .content{
-        width: 80%;
-        margin: 0 auto;
-    }
-    footer{
-        width: 80%;
-        margin: 0 auto;
-        padding: 30px;
-    }
-}
-
-@media (min-width: 1180px) and (max-width: 1399px) {
-    .content{
-        width: 95%;
-        margin: 0 auto;
-    }
-    footer{
-        width: 95%;
-        margin: 0 auto;
-        padding: 30px;
-    }
-}
-
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -90,6 +49,7 @@ a{
     padding: 20px 0;
     max-height: 82px;
     overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .kaupungit-inner{
@@ -98,17 +58,15 @@ a{
 }
 
 .kaupunki{
-    text-align: center;
     width: 150px;
     margin-right: 5%;
     padding: 10px 0;
-    display: inline-block;
     background: rgba(255, 255, 255, 0.2);
     border: solid 1px rgba(255, 255, 255, 0.2);
-    border-radius: 10px; 
     box-sizing: border-box;
     margin: 0 10px;
     color: #DCDCDC;
+    border-radius: 10px; 
 }
 
 .kaupunki:hover{
@@ -135,30 +93,6 @@ a{
 
 .kaupunki-banneri:hover{
     border: solid 2px rgba(255, 255, 255, 0.4);
-}
-
-
-
-
-.yksikot{
-    width: 100%;
-    padding: 20px 0;
-}
-
-@media (max-width: 895px) {
-    .yksikot{
-        text-align: center;
-    }
-}
-
-.yksikko{
-    display: inline-block;
-    margin: 0 10px;
-}
-
-.yksikko-nimi{
-    display: inline-block;
-    line-height: 25px;
 }
 
 .yksikko-nimi-toinen{
@@ -221,37 +155,6 @@ input:checked + .slider:before {
     font-size: 32px;
 }
 
-@media (min-width: 1199px) {
-    .blocks{
-        padding: 0 80px 0 0;
-    }
-}
-
-@media (min-width: 895px) and (max-width: 1200px) {
-    .blocks{
-        padding: 0 30px;
-    }
-}
-
-@media (min-width: 450px) and (max-width: 894px) {
-
-    .blocks > div{
-        display: block!important;
-        margin-left: calc(50% - 200px)!important;
-    }
-}
-
-@media (max-width: 449px) {
-
-    .blocks > div{
-        display: block!important;
-    }
-}
-
-.blocks > div{
-    margin-top: 18px;
-}
-
 .block-otsikko{
     font-size: 24px;
 }
@@ -260,30 +163,6 @@ input:checked + .slider:before {
     background: rgba(255, 255, 255, 0.3);
     border: solid 1px rgba(255, 255, 255, 0.4);
     box-shadow: 0px 5px 30px rgba(0,0,0,0.05);
-}
-
-.lampotila-block{
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 10px;
-}
-
-@media (min-width: 1100px) {
-    .lampotila-block-inner{
-        width: 250px;
-    }
-}
-
-@media (min-width: 450px) and (max-width: 1099px) {
-    .lampotila-block-inner{
-        width: 400px;
-    }
-}
-
-@media (max-width: 449px) {
-    .lampotila-block{
-        width: 95%;
-    }
 }
 
 .lampotila-block-inner{
@@ -310,24 +189,6 @@ input:checked + .slider:before {
     font-weight: 1000;
 }
 
-.tuuli-block{
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 10px;
-}
-
-@media (min-width: 450px) {
-    .tuuli-block-inner{
-        width: 400px;
-    }
-}
-
-@media (max-width: 449px) {
-    .tuuli-block{
-        width: 95%;
-    }
-}
-
 .tuuli-block-inner{
     height: 270px;
     background: rgba(255, 255, 255, 0.2);
@@ -345,36 +206,6 @@ input:checked + .slider:before {
 #tuuli{
     font-size: 48px;
     font-weight: 1000;
-}
-
-.kolmas-block{
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 10px;
-}
-
-@media (min-width: 1100px) {
-    .kosteus-block-inner{
-        width: 330px;
-    }
-    .paine-block-inner{
-        width: 330px;
-    }
-}
-
-@media (min-width: 450px) and (max-width: 1099px) {
-    .kosteus-block-inner{
-        width: 400px;
-    }
-    .paine-block-inner{
-        width: 400px;
-    }
-}
-
-@media (max-width: 449px) {
-    .kolmas-block{
-        width: 95%;
-    }
 }
 
 .kosteus-block-inner{
@@ -432,29 +263,6 @@ input:checked + .slider:before {
     transform: translateY(-50%);
 }
 
-.nakyvyys-block{
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 10px;
-}
-
-@media (min-width: 1100px) {
-    .nakyvyys-block-inner{
-        width: 250px;
-    }
-}
-
-@media (min-width: 450px) and (max-width: 1099px) {
-    .nakyvyys-block-inner{
-        width: 400px;
-    }
-}
-
-@media (max-width: 449px) {
-    .nakyvyys-block{
-        width: 95%;
-    }
-}
 
 .nakyvyys-block-inner{
     height: 270px;
@@ -475,24 +283,6 @@ input:checked + .slider:before {
     font-weight: 1000;
 }
 
-.sade-block{
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 10px;
-}
-
-@media (min-width: 450px) {
-    .sade-block-inner{
-        width: 400px;
-    }
-}
-
-@media (max-width: 449px) {
-    .sade-block{
-        width: 95%;
-    }
-}
-
 .sade-block-inner{
     height: 270px;
     background: rgba(255, 255, 255, 0.2);
@@ -510,24 +300,6 @@ input:checked + .slider:before {
 #sade{
     font-size: 48px;
     font-weight: 1000;
-}
-
-@media (min-width: 1100px) {
-    .lumensyvyys-block-inner{
-        width: 330px;
-    }
-}
-
-@media (min-width: 450px) and (max-width: 1099px) {
-    .lumensyvyys-block-inner{
-        width: 400px;
-    }
-}
-
-@media (max-width: 449px) {
-    .lumensyvyys-block{
-        width: 95%;
-    }
 }
 
 .lumensyvyys-block-inner{

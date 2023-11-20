@@ -12,23 +12,27 @@
 
         <link rel="stylesheet" type="text/css" href="css/main.css" />
 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
         <script src="js/main.js"></script>
     </head>
     <body>
-        <div class="content">
+        <div class="content text-white container">
             <div class="kaupungit">
                 <div class="kaupungit-inner">
-                    <a class="kaupunki kaupunki-active" kaupunki="Lahti" href="">
+                    <a class="kaupunki kaupunki-active d-inline-block text-center text-decoration-none" kaupunki="Lahti" href="">
                         Lahti
-                    </a><a class="kaupunki" kaupunki="Heinola" href="">
+                    </a><a class="kaupunki d-inline-block text-center text-decoration-none" kaupunki="Heinola" href="">
                         Heinola
-                    </a><a class="kaupunki" kaupunki="Asikkala" href="">
+                    </a><a class="kaupunki d-inline-block text-center text-decoration-none" kaupunki="Asikkala" href="">
                         Asikkala
-                    </a><a class="kaupunki" kaupunki="Orimattila" href="">
+                    </a><a class="kaupunki d-inline-block text-center text-decoration-none" kaupunki="Orimattila" href="">
                         Orimattila
-                    </a><a class="kaupunki" kaupunki="Hartola" href="">
+                    </a><a class="kaupunki d-inline-block text-center text-decoration-none" kaupunki="Hartola" href="">
                         Hartola
                     </a>
                 </div>
@@ -37,32 +41,32 @@
                 <span class="kaupunki-nimi-otsikko"></span>
                 <span class="paivitetty"></span>
             </div>
-            <div class="yksikot">
-                <div class="yksikko yksikko-lampotila">
+            <div class="yksikot p-3">
+                <div class="yksikko yksikko-lampotila d-inline-block p-2">
                     <label class="swtich">
-                        <span class="yksikko-nimi c">&deg;C&nbsp;&nbsp;</span>
+                        <span class="yksikko-nimi c d-inline-block">&deg;C&nbsp;&nbsp;</span>
                         <input type="checkbox" class="switch-checkbox" id="temperature-switch" />
                         <span class="slider"></span>
-                        <span class="yksikko-nimi yksikko-nimi-toinen f">&nbsp;&nbsp;&deg;F</span>
+                        <span class="yksikko-nimi yksikko-nimi-toinen f d-inline-block">&nbsp;&nbsp;&deg;F</span>
                     </label>
-                </div><div class="yksikko yksikko-nopeus">
+                </div><div class="yksikko yksikko-nopeus d-inline-block p-2">
                     <label class="swtich">
-                        <span class="yksikko-nimi ms">m/s&nbsp;&nbsp;</span>
+                        <span class="yksikko-nimi ms d-inline-block">m/s&nbsp;&nbsp;</span>
                         <input type="checkbox" class="switch-checkbox" id="nopeus-switch"/>
                         <span class="slider"></span>
-                        <span class="yksikko-nimi yksikko-nimi-toinen mph">&nbsp;&nbsp;mph</span>
+                        <span class="yksikko-nimi yksikko-nimi-toinen mph d-inline-block">&nbsp;&nbsp;mph</span>
                     </label>
-                </div><div class="yksikko yksikko-paine">
+                </div><div class="yksikko yksikko-paine d-inline-block p-2">
                     <label class="swtich">
-                        <span class="yksikko-nimi hpa">hPa&nbsp;&nbsp;</span>
+                        <span class="yksikko-nimi hpa d-inline-block">hPa&nbsp;&nbsp;</span>
                         <input type="checkbox" class="switch-checkbox" id="paine-switch"/>
                         <span class="slider"></span>
-                        <span class="yksikko-nimi yksikko-nimi-toinen inhg">&nbsp;&nbsp;inHg</span>
+                        <span class="yksikko-nimi yksikko-nimi-toinen inhg d-inline-block">&nbsp;&nbsp;inHg</span>
                     </label>
                 </div>
             </div>
-            <div class="blocks">
-                <div class="lampotila-block">
+            <div class="blocks row row-cols-xxl-3 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1 row-cols-1">
+                <div class="lampotila-block col">
                     <span class="block-otsikko">Lämpötila</span>
                     <div class="lampotila-block-inner block-inner-hover">
                         <div>
@@ -71,7 +75,7 @@
                             <span id="tuntuu"></span>
                         </div>
                     </div>
-                </div><div class="tuuli-block">
+                </div><div class="tuuli-block col">
                     <span class="block-otsikko">Tuuli</span>
                     <div class="tuuli-block-inner block-inner-hover">
                         <div>
@@ -82,7 +86,7 @@
                             <span id="tuulen-puska"></span>
                         </div>
                     </div>
-                </div><div class="kolmas-block">
+                </div><div class="kolmas-block col">
                     <span class="block-otsikko">Kosteus</span>
                     <div class="kosteus-block-inner block-inner-hover">
                         <svg xmlns="http://www.w3.org/2000/svg" height="3em" viewBox="0 0 384 512" fill="#FFFFFF"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M192 512C86 512 0 426 0 320C0 228.8 130.2 57.7 166.6 11.7C172.6 4.2 181.5 0 191.1 0h1.8c9.6 0 18.5 4.2 24.5 11.7C253.8 57.7 384 228.8 384 320c0 106-86 192-192 192zM96 336c0-8.8-7.2-16-16-16s-16 7.2-16 16c0 61.9 50.1 112 112 112c8.8 0 16-7.2 16-16s-7.2-16-16-16c-44.2 0-80-35.8-80-80z"/></svg>
@@ -93,7 +97,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" height="3em" viewBox="0 0 576 512" fill="#FFFFFF"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M544 416L32 416c-17.7 0-32 14.3-32 32s14.3 32 32 32l512 0c17.7 0 32-14.3 32-32s-14.3-32-32-32zm22.6-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L480 274.7 480 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 210.7-41.4-41.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l96-96zm-320-45.3c-12.5-12.5-32.8-12.5-45.3 0L160 274.7 160 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 210.7L54.6 233.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
                         <span id="paine"></span>
                     </div>
-                </div><div class="nakyvyys-block">
+                </div><div class="nakyvyys-block col">
                     <span class="block-otsikko">Näkyvyys</span>
                     <div class="nakyvyys-block-inner block-inner-hover">
                         <div>
@@ -101,7 +105,7 @@
                             <span id="nakyvyys"></span>
                         </div>
                     </div>
-                </div><div class="sade-block">
+                </div><div class="sade-block col">
                     <span class="block-otsikko">Sade</span>
                     <div class="sade-block-inner block-inner-hover">
                         <div>
@@ -110,7 +114,7 @@
                             <span id="saade-aika" class="sade-hide">Last 1 hour</span>
                         </div>
                     </div>
-                </div><div class="kolmas-block">
+                </div><div class="kolmas-block col">
                     <span class="block-otsikko">Lumensyvyys</span>
                     <div class="lumensyvyys-block-inner block-inner-hover">
                         <svg xmlns="http://www.w3.org/2000/svg" height="3em" viewBox="0 0 448 512" fill="#FFFFFF"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 0c17.7 0 32 14.3 32 32V62.1l15-15c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-49 49v70.3l61.4-35.8 17.7-66.1c3.4-12.8 16.6-20.4 29.4-17s20.4 16.6 17 29.4l-5.2 19.3 23.6-13.8c15.3-8.9 34.9-3.7 43.8 11.5s3.8 34.9-11.5 43.8l-25.3 14.8 21.7 5.8c12.8 3.4 20.4 16.6 17 29.4s-16.6 20.4-29.4 17l-67.7-18.1L287.5 256l60.9 35.5 67.7-18.1c12.8-3.4 26 4.2 29.4 17s-4.2 26-17 29.4l-21.7 5.8 25.3 14.8c15.3 8.9 20.4 28.5 11.5 43.8s-28.5 20.4-43.8 11.5l-23.6-13.8 5.2 19.3c3.4 12.8-4.2 26-17 29.4s-26-4.2-29.4-17l-17.7-66.1L256 311.7v70.3l49 49c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-15-15V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V449.9l-15 15c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l49-49V311.7l-61.4 35.8-17.7 66.1c-3.4 12.8-16.6 20.4-29.4 17s-20.4-16.6-17-29.4l5.2-19.3L48.1 395.6c-15.3 8.9-34.9 3.7-43.8-11.5s-3.7-34.9 11.5-43.8l25.3-14.8-21.7-5.8c-12.8-3.4-20.4-16.6-17-29.4s16.6-20.4 29.4-17l67.7 18.1L160.5 256 99.6 220.5 31.9 238.6c-12.8 3.4-26-4.2-29.4-17s4.2-26 17-29.4l21.7-5.8L15.9 171.6C.6 162.7-4.5 143.1 4.4 127.9s28.5-20.4 43.8-11.5l23.6 13.8-5.2-19.3c-3.4-12.8 4.2-26 17-29.4s26 4.2 29.4 17l17.7 66.1L192 200.3V129.9L143 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l15 15V32c0-17.7 14.3-32 32-32z"/></svg>
@@ -120,7 +124,7 @@
                 </div>
             </div>
         </div>
-        <footer>
+        <footer class="text-white">
             &copy; 2023 Nikolai Zakharov
         </footer>
     </body>
