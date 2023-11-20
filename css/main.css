@@ -21,6 +21,11 @@ a{
         width: 1300px;
         margin: 0 auto;
     }
+    footer{
+        width: 1300px;
+        margin: 0 auto;
+        padding: 30px;
+    }
 }
 
 @media (min-width: 1400px) and (max-width: 1599px) {
@@ -28,12 +33,22 @@ a{
         width: 80%;
         margin: 0 auto;
     }
+    footer{
+        width: 80%;
+        margin: 0 auto;
+        padding: 30px;
+    }
 }
 
 @media (min-width: 1180px) and (max-width: 1399px) {
     .content{
         width: 95%;
         margin: 0 auto;
+    }
+    footer{
+        width: 95%;
+        margin: 0 auto;
+        padding: 30px;
     }
 }
 
@@ -544,8 +559,4 @@ input:checked + .slider:before {
     margin-left: 63px;
     top: 75%;
     transform: translateY(-50%);
-}
-
-footer{
-    padding: 30px;
 }
