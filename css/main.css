@@ -59,27 +59,26 @@ body{
 
 .kaupunki{
     width: 150px;
-    margin-right: 5%;
+    margin-right: 20px;
     padding: 10px 0;
-    background: rgba(255, 255, 255, 0.2);
-    border: solid 1px rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2)!important;
+    border: solid 1px rgba(255, 255, 255, 0.2)!important;
     box-sizing: border-box;
-    margin: 0 10px;
-    color: #DCDCDC;
+    color: #DCDCDC!important;
     border-radius: 10px; 
 }
 
 .kaupunki:hover{
-    background: rgba(255, 255, 255, 0.3);
-    border: solid 1px rgba(255, 255, 255, 0.4);
-    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.3)!important;
+    border: solid 1px rgba(255, 255, 255, 0.4)!important;
+    color: #FFFFFF!important;
     box-shadow: 0px 5px 30px rgba(0,0,0,0.05);
 }
 
 .kaupunki-active{
-    background: rgba(255, 255, 255, 0.3);
-    border: solid 1px rgba(255, 255, 255, 0.4);
-    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.3)!important;
+    border: solid 1px rgba(255, 255, 255, 0.4)!important;
+    color: #FFFFFF!important;
 }
 
 .kaupunki-banneri{
@@ -157,6 +156,10 @@ input:checked + .slider:before {
 
 .block-otsikko{
     font-size: 24px;
+}
+
+.block-inner-hover{
+    transition: .4s;
 }
 
 .block-inner-hover:hover{
